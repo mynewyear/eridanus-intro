@@ -56,8 +56,11 @@
 
             footer {
                 color: rgb(100, 130, 155);
-                position: absolute;
-                bottom: 0;
+                position:relative;
+                bottom:0;
+                left:0;
+                right:100;
+                height:50px
             }
         </style>
     </head>
@@ -94,10 +97,39 @@
 
                 </div>
             </section>
-        </div>
-    </body>
+    
+        <section>
+            <h2>Leave a Message</h2>
+            <form name="leave_message">
+                <div>
+                    <label for="usersName">Name:</label>
+                    <input type="text" name="usersName" required=true>
+                </div>
+                <div>
+                    <label for="usersEmail">Email:</label>
+                    <input type="email" name="usersEmail" required=true>
+                </div>
+                <div>   
+                    <label for="usersMessage">Message:</label>
+                    <textarea name="usersMessage" required=true></textarea>
+                </div>
+                <div>
+                    <button type="submit" id="submit_btn">Submit</button>
+                </div>
+            </form>
+        </section>
+        <section id="messages" > <!-- to hide the section when no message-->
+            <div class="messages_list">
+                <h2>Messages:</h2>
+                <ul>
+                </ul>
+            </div>
+        </section>
+    </div>
+
     <footer>
         
     </footer>
     <script type="text/javascript" src="js/index.js"></script>
+</body>
 </html>
