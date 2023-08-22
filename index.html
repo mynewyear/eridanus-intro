@@ -5,90 +5,41 @@
         <title>Natalia Ia</title>
         <meta charset="UTF-8">
         <meta name="description" content="all about me">
-        <style>
-            body {
-                background-color: rgb(240, 240, 240);
-            }
-
-            h1 {
-                color: rgb(100, 130, 155);
-            }
-
-            p {
-                color: rgb(100, 130, 155);
-            }
-
-            h2 {
-                color: rgb(90, 120, 130);
-            }
-
-            div.a {
-                text-align: center;
-                color: rgb(100, 130, 155);
-            }
-
-            div.b {
-                text-align: center;
-                color: rgba(71, 92, 255, 0.2);
-            }
-
-            ol {
-                color: rgb(80, 100, 130);
-                display: inline-block;
-                text-align: center;
-            }
-
-            ul {
-                color: rgb(80, 100, 130);
-                display: inline-block;
-                text-align: center;
-            }
-
-            nav {
-                text-align: center;
-            }
-
-            a:link {
-                color: rgb(80, 100, 130);
-                background-color: transparent;
-                text-decoration: none;
-            }
-
-            footer {
-                color: rgb(100, 130, 155);
-                position:relative;
-                bottom:0;
-                left:0;
-                right:100;
-                height:50px
-            }
-        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/index.css">
     </head>
 
     <body>
         <div class="a">
-            <h2>"Natalia"</h2>
+            <h2>Natalia</h2>
             <section>
                 <div class="b">
                     <h1>
-                        "About"
+                        About
                     </h1>
                     <p>
                         Hey, I'm Natalia, I live in California.
                     </p>
+                    <div class="container">
+                        <div class="experience-list">
+                        <h1>
+                            Experience
+                        </h1>
+                        <ul >
+                            <li> 4 years as QA tester</li>
+                            <li> 2 as Devops engineer </li>
+                        </ul>
+                        </div>
+                        <div class="right">
+                        <section id="skills">
+                            <h2>Skills</h2>
+                            <ul></ul>
+                        </section>   
+                        </div>
+                    </div>
+                    
                     <h1>
-                        "Experience"
-                    </h1>
-                    <ol>
-                        <li> 4 years as QA tester</li>
-                        <li> 2 as Devops engineer </li>
-                    </ol>
-                    <section id="skills">
-                        <h2>Skills</h2>
-                        <ul></ul>
-                    </section>
-                    <h1>
-                        "Connect"
+                        Connect
                     </h1>
                     <nav>
                         <p><a href="https://github.com/mynewyear">github</a> </p>
@@ -118,7 +69,7 @@
                 </div>
             </form>
         </section>
-        <section id="messages" > <!-- to hide the section when no message-->
+        <section id="messages" hidden> <!-- to hide the section when no message-->
             <div class="messages_list">
                 <h2>Messages:</h2>
                 <ul>
