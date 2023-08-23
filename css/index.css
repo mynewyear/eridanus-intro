@@ -1,20 +1,3 @@
-/*  Change the background color of the page body V
- Change the default text color V
- Customize the font family V
-(Optional) Load in a font family from Google Fonts
- Add spacing (padding/margin) between sections V
- Change the font size, weight, and color of all headings
- Transform the "Experience" list items into styled blocks
- Transform the "Skills" list items into styled blocks
- Style the "Leave a Message" form elements
-Change font size and color of labels
-Change font size, padding, border, etc. of inputs and textarea
-Add spacing (padding/margin) between form fields
-Change padding, background color, border, etc. of submit button
- Transform the "Messages" list items into styled blocks and customize the button(s)
- Change the spacing and background color of the footer
- Use Media Queries to make sure the webpage is responsive for all device sizes 
- (mobile, tablet, desktop, etc.) */
 
  body {
     background: rgb(198, 212, 229);
@@ -31,13 +14,13 @@ h1, h2 {
     font-weight: bold;
     color: rgb(100, 130, 155); 
   }
-
+/*
   .container {
     display: flex;
     justify-content: center; 
     width: 100%;
   }
-  
+  */
   .column {
     color: rgb(80, 100, 130);
     width: 50%; 
@@ -97,3 +80,76 @@ footer {
     height:10px
 }
 
+.container {
+    /* display: flex; */
+    justify-content: center; 
+    width: 100%;
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px; /* space between items */
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #353648;
+}
+
+.experience-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows elements to wrap to the next */
+    justify-content: space-between; 
+}
+
+.experience-item {
+    width: 45%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.message-form .form-grid {
+    display: grid;
+    grid-template-columns: auto 1fr; /* columns */
+    grid-gap: 10px; 
+    align-items: center; /* vertical */
+}
+
+.message-form .form-grid textarea {
+    grid-column: 2; /* second column */
+    grid-row: 3; 
+}
+
+.message-form .form-grid button {
+    grid-column: 2; 
+}
+
+
+
+/* MEDIA */
+
+@media screen and (max-width: 768px) {
+    .navigation ul {
+        flex-direction: column; /* vertical */
+    }
+
+    .message-form .form-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .message-form .form-grid textarea,
+    .message-form .form-grid button {
+        grid-column: 1; /* Align with the first column */
+    }
+
+    .experience-item {
+        width: 100%; 
+    }
+}
