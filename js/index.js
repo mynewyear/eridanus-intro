@@ -23,22 +23,26 @@ for (let i = 0; i < skills.length; i++) {
         skillList.appendChild(skill);
 }
 // store leave_message
-let messageForm = document.forms.leave_message;
-//Add an event listener
-messageForm[0].addEventListener('submit', function(event) {
-    //prevent the default refreshing
-    event.preventDefault() 
+let messageForm = document.querySelector('.message-form');  // Adjusted to match the class of your form
+
+// Add an event listener
+messageForm.addEventListener('submit', function(event) {
+    // Prevent refreshing
+    event.preventDefault();
+
     // Retrieve values
-    const usersName = messageForm.usersName.value;
-    const usersEmail = messageForm.usersEmail.value;
-    const usersMessage = messageForm.usersMessage.value;
-    console.log(userName + "\n" + userEmail + "\n" + userMessage); //log
+    const usersName = event.target.usersName.value;
+    const usersEmail = event.target.usersEmail.value;
+    const usersMessage = event.target.usersMessage.value;
+
+    console.log(usersName + "\n" + usersEmail + "\n" + usersMessage); // log
 
     let messageSection = document.getElementById("messages");
+    messageSection.removeAttribute("hidden");  // Show the message section when a new message is added
     let messageList = messageSection.querySelector("ul");
 
     let newMessage = document.createElement("li");
-    newMessage.innerHTML = '<a href="mailto:">' + event.target.name.value + '</a>' + ' <span>wrote: ' + event.target.message.value + '</span>  '
+    newMessage.innerHTML = '<a href="mailto:' + usersEmail + '">' + usersName + '</a>' + ' <span>wrote: ' + usersMessage + '</span>';
     messageList.appendChild(newMessage);
 
     const removeButton = document.createElement("button");
@@ -48,24 +52,33 @@ messageForm[0].addEventListener('submit', function(event) {
         let entry = removeButton.parentElement;
         entry.remove();
     });
-    newMessage.appendChild(removeButton);  
-    messageList.appendChild(newMessage);
+
+    newMessage.appendChild(removeButton);
     messageForm.reset();
 });
+
 // Fetch data
 fetch('https://api.github.com/users/mynewyear/repos')
     .then(function(response) {
         if (!response.ok) {
-            throw new Error("sorry, it's response error");
+            throw new Error("Network response was not ok: " + response.status);
         }
         return response.json();
     })
     .then(function(repositories) {
+        // Sort by creation date
+        repositories.sort(function(a, b) {
+            return new Date(b.created_at) - new Date(a.created_at);
+        });
+
         let projectSection = document.getElementById("projects");
         let projectsList = projectSection.querySelector("ul");
-        for (i = 0; i < 7; i++) {
+
+        let repoLimit = Math.min(repositories.length, 5);  // Use a variable
+        for (let i = 0; i < repoLimit; i++) {
             let project = document.createElement("li");
-            project.innerText = repositories[i].name;
+            // repository name and link
+            project.innerHTML  = `<a href = "https://github.com/${repositories[i].full_name}"> ${repositories[i].name}</a>`
             projectsList.appendChild(project);
         };
     })
