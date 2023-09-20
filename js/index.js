@@ -66,12 +66,19 @@ fetch('https://api.github.com/users/mynewyear/repos')
         return response.json();
     })
     .then(function(repositories) {
+        // Sort by creation date
+        repositories.sort(function(a, b) {
+            return new Date(b.created_at) - new Date(a.created_at);
+        });
+
         let projectSection = document.getElementById("projects");
         let projectsList = projectSection.querySelector("ul");
-        let repoLimit = Math.min(repositories.length, 10);  // Use a variable
-        for (i = 0; i < repoLimit; i++) {
+
+        let repoLimit = Math.min(repositories.length, 5);  // Use a variable
+        for (let i = 0; i < repoLimit; i++) {
             let project = document.createElement("li");
-            project.innerText = repositories[i].name;
+            // repository name and link
+            project.innerHTML  = `<a href = "https://github.com/${repositories[i].full_name}"> ${repositories[i].name}</a>`
             projectsList.appendChild(project);
         };
     })
