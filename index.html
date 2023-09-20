@@ -7,83 +7,84 @@
         <meta name="description" content="all about me">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/index.css">
-        <nav class="navigation">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#connect">Connect</a></li>
-            </ul>
-        </nav>
-        
     </head>
-
     <body>
-        <div class="a">
-            <h2>Natalia</h2>
-            
-                <div class="b">
-                    <section id="about">
-                    <h1>
-                        About
-                    </h1>
-                    <p>
-                        Hey, I'm Natalia, I live in California.
-                    </p>
+        <header>
+            <nav class="navigationBar">
+                <div class="logo-name">
+                    <img src="./img/nata.png" alt="Natalia Ia" class="profile">
+                    <a href="#" class="nav-branding">Natalia Ia</a>
+                </div>
+                <ul class="nav_list">
+                    <li class="nav_item"><a href="#about">About</a></li>
+                    <li class="nav_item"><a href="#experience">Experience</a></li>
+                    <li class="nav_item"><a href="#skills">Skills</a></li>
+                    <li class="nav_item"><a href="#projects">Projects</a></li>
+                    <li class="nav_item"><a href="#message">Connect</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main>
+            <div class="container">
+                <section id="about">
+                    <h2>About</h2>
+                    <p>Hey, I'm Natalia, I live in California.</p>
                 </section>
+            </div>
+
+            <div class="container">
                 <section id="experience">
-                    <div class="container">
-                        <div class="column">
-                            <div class="experience-list">
-                                <h1>Experience</h1>
-                                <div class="experience-grid">
-                                    <div class="experience-item">4 years as QA tester.</div>
-                                    <div class="experience-item">2 years as DevOps engineer.</div>
-                                </div>
-                            </div>                            
+                    <div class="experience-list">
+                        <h2>Experience</h2>
+                        <ul class="experience-grid">
+                            <li class="experience-item">Current:   DevOps engineer.</li>
+                            <li class="experience-item">Previous experience: QA tester.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="container">
+                <section id="skills">
+                    <div class="skills-list">
+                        <h2>Skills</h2>
+                        <div id="skillsList">
+                            <ul id="skillsItem"></ul>
                         </div>
                     </div>
                 </section>
-                <section id="column">
-                    <div class="column">
-                        <section id="skills">
-                            <h2>Skills</h2>
-                            <ul></ul>
-                        </section>
-                    </div>
-                </section>
+            </div>
+
+            <div class="container">
                 <section id="projects">
                     <h2>Projects</h2>
-                    <ul></ul>
-                </section>
-                <section id="connect">
+                    <div id="projectsList">
+                        <ul id="projectsItem"></ul>
                     </div>
-                        <h1>
-                            Connect
-                        </h1>
-                        <nav>
-                            <p><a href="https://github.com/mynewyear">github</a> </p>
-                            <p><a href="http://linkedin.com">linkedin</a> </p>
-                        </nav>
-                    </div>
-                </section> 
                 </section>
-                <section class="message">
+            </div>
+
+            <div class="container">
+                <section id="message">
                     <h2>Leave a Message</h2>
-                    <form name="leave_message" class="message-form">
-                        <div class="form-grid">
-                            <label for="usersName">Name:</label>
-                            <input type="text" name="usersName" required>
-                            <label for="usersEmail">Email:</label>
-                            <input type="email" name="usersEmail" required>
-                            <label for="usersMessage">Message:</label>
-                            <textarea name="usersMessage" required></textarea>
+                    <form class="message-form">
+                        <div class="input-row">
+                            <label for="usersName"></label>
+                            <input type="text" id="usersName" name="usersName" placeholder="Name">
+                            <label for="usersEmail"></label>
+                            <input type="email" id="usersEmail" name="usersEmail" placeholder="Email">
+                        </div>
+                        <div class="input-row">
+                            <label for="usersMessage"></label>
+                            <textarea id="usersMessage" name="usersMessage" placeholder="Your message"></textarea>
                             <div></div> <!-- Empty grid cell -->
+                        </div>
+                        <div class="input-row">
                             <button type="submit" id="submit_btn">Submit</button>
                         </div>
                     </form>
                 </section>
-                
                 <section id="messages" hidden> <!-- to hide the section when no message-->
                     <div class="messages_list">
                         <h2>Messages:</h2>
@@ -91,11 +92,17 @@
                         </ul>
                     </div>
                 </section>
-         </div>
+            </div>
+        </main>
 
-    <footer>
-        
-    </footer>
-    <script type="text/javascript" src="js/index.js"></script>
-</body>
+        <footer>
+            <span id="currentYear"></span>
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/natalia-iakovleva-a69a7035/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mynewyear" target="_blank">Github</a>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>
