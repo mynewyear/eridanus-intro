@@ -52,19 +52,25 @@ messageForm[0].addEventListener('submit', function(event) {
     messageList.appendChild(newMessage);
     messageForm.reset();
 });
+// Fetch data
+fetch('https://api.github.com/users/mynewyear/repos')
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error("sorry, it's response error");
+        }
+        return response.json();
+    })
+    .then(function(repositories) {
+        let projectSection = document.getElementById("projects");
+        let projectsList = projectSection.querySelector("ul");
+        for (i = 0; i < 7; i++) {
+            let project = document.createElement("li");
+            project.innerText = repositories[i].name;
+            projectsList.appendChild(project);
+        };
+    })
+    .catch(function(error) {
+        // catch error during the fetch process
+        console.error("Error fetching data:", error);
+    });
 
-let githubRequest = new XMLHttpRequest();
-githubRequest.open('GET', 'https://api.github.com/users/mynewyear/repos');
-githubRequest.send();
-githubRequest.onload = function() {
-    let repositories = JSON.parse(githubRequest.responseText);
-    console.log(repositories);
-
-    let projectSection = document.getElementById("projects");
-    let projectsList = projectSection.querySelector("ul");
-    for (i = 0; i < 7; i++) {
-        let project = document.createElement("li");
-        project.innerText = repositories[i].name;
-        projectsList.appendChild(project);
-    };
-};
