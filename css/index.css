@@ -44,6 +44,7 @@ main {
     margin: 0 auto;
     padding: 0 auto;
     width: 100%;
+    flex: 1; 
 }
 
 /* Global Styles */
@@ -52,6 +53,12 @@ body {
     color: rgba(240, 240, 240);
     font-family: 'Oswald', sans-serif;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2 {
@@ -182,8 +189,22 @@ a:visited {
 /* Footer */
 footer {
     color: rgb(31, 48, 61);
-    text-align: center;
     padding: 10px 0;
+    max-height: 5vh;
+    overflow: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.footer-img {
+    height: 50%;
+    width: auto;
+}
+
+.social-media, .copyright {
+    margin: 0 10px; 
 }
 
 /* Container */
@@ -206,7 +227,9 @@ footer {
     }
 
     .nav_list {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
     }
 
     .message-form .form-grid {
@@ -220,5 +243,17 @@ footer {
 
     .experience-item {
         width: 100%;
+    }
+    
+    footer {
+        padding: 5px 0;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        padding: 3px 0;
+        font-size: 0.6rem;
     }
 }
