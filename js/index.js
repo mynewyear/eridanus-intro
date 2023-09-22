@@ -4,10 +4,10 @@ let thisYear = today.getFullYear();
 
 // select footer
 let footer = document.querySelector("footer");
-let copyright = document.createElement("p");
-
+let copyright = document.createElement("div");
+copyright.className = "copyright";
 // Set copyright element
-copyright.innerText = "Natalia Ia " + thisYear;
+copyright.innerText = "© Natalia Ia " + thisYear;
 footer.appendChild(copyright);
 
 // skills section
